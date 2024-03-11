@@ -1,0 +1,8 @@
+<form (ngSubmit)="fnaddMenu()" [formGroup]="menuForm"> 
+    <div class="form-group">
+      <label for="date">Date:</label>
+      <input type="date" id="date" formControlName="date" required> 
+    </div>
+    <button type="submit">Ajouter</button>
+  </form>
+  

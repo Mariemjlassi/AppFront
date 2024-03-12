@@ -1,0 +1,14 @@
+<div>
+<table class="table">
+    <tr>
+        <th>Description</th>
+        <th>Dessert</th>
+        <th>Qte</th>
+    </tr>
+    <tr *ngFor="let p of plats">
+        <td>{{p.description}}</td>
+        <td>{{p.dessert}}</td>
+        <td>{{p.qteDisponible}}</td>
+    </tr>
+</table>
+</div>

@@ -1,0 +1,15 @@
+<div *ngIf="menus && menus.length > 0; else noMenus">
+    <h2>Liste des Menus</h2>
+    <ul>
+      <li *ngFor="let menu of menus">
+       
+        <p>Date: {{ menu.date }}</p>
+        
+      </li>
+    </ul>
+  </div>
+  
+  <ng-template #noMenus> <!--sinon lehna staamelt directive ng template maa directive else pour afficher aucun ... si il ny'a pas aucun menu -->
+    <p>Aucun menu trouvé.</p>
+  </ng-template>
+  

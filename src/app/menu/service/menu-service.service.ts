@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class MenuServiceService {
-  private baseUrl = 'http://localhost:9091/menus';
+  private baseUrl = 'http://localhost:9092/api/chef/menus';
   constructor(private http:HttpClient) { }
 
   getAllMenus(): Observable<any[]>{

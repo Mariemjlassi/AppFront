@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 
 import { RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
 
 
 const routes: Routes  = [
@@ -8,8 +10,14 @@ const routes: Routes  = [
     path:"menu",loadChildren:() => import('./menu/menu.module').then(m=>m.MenuModule)
   },
   {
-    path:"plat",loadChildren:()=> import('./plat/plat.module').then(m=>m.PlatModule)
-  }
+    path:"chef",loadChildren:()=> import('./chef/chef.module').then(m=>m.ChefModule)
+  },
+  {
+    path:"login",component:LoginComponent
+  },
+  {path:"signup",component:SignupComponent
+}
+  
   
 ]
 @NgModule({

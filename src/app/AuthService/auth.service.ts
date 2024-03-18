@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -29,12 +29,24 @@ export class AuthService {
     return this.http.post(url, SignupRequest);
   }
   login(loginRequest: any): Observable<any> {
-    return this.http.post(this.baseUrl+"login", loginRequest);
+    return this.http.post<any>(this.baseUrl + "login", loginRequest).pipe(
+      map(response => {
+        // Vérification de la réponse et extraction du token JWT
+        if (response && response.jwt) {
+          // Stockage du token JWT dans le localStorage
+          localStorage.setItem('jwt', response.jwt);
+  
+          // Stockage du rôle dans le localStorage
+          localStorage.setItem('userRole', response.role);
+        }
+        return response;
+      })
+    );
   }
 
-  saveTokenAndRole(token: string, role: string): void {
+  saveTokenAndRole(token: string, roles: string): void {
     localStorage.setItem('token', token);
-    localStorage.setItem('userRole', role);
+    localStorage.setItem('userRole', roles);
   }
   
 

@@ -15,10 +15,11 @@ export class LoginComponent {
   login() {
     this.authService.login(this.loginRequest).subscribe(
       response => {
-        console.log('Token:',  response.jwt);
-        localStorage.setItem('jwt',response.jwt);
-        localStorage.setItem('userRole', response.userRole);
+       
         console.log('Login successful:', response);
+        localStorage.setItem('jwt',response.jwt);
+        const userRole = localStorage.getItem('userRole');
+        console.log('User role:', userRole);
         // Rediriger l'utilisateur vers une page appropriée après la connexion réussie
         
       },

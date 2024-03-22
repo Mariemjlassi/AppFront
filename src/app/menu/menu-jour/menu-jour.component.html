@@ -1,0 +1,17 @@
+<div *ngIf="menu  else noMenus">
+    <h2>Menu du Jour</h2>
+    <ul>
+      <li>
+       
+        <p>Date: {{ menu.date}}</p>
+        <p>Description : {{menu.descriptionPlat}}</p>
+        <p>Dessert :{{menu.dessert}}</p>
+        <p>Supplement : {{menu.supplement}}</p>
+      </li>
+    </ul>
+  </div>
+  
+  <ng-template #noMenus> 
+    <p>Aucun menu trouvé.</p>
+  </ng-template>
+  
